@@ -4,6 +4,13 @@ const axios = require('axios')
 const app = express()
 const apiKey = process.env.GOOGLE_API_KEY
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+  next()
+})
+
 app.get('/:placeId', async (req, res) => {
   const placeId = req.params.placeId
   const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=opening_hours&key=${apiKey}`
