@@ -5,7 +5,7 @@ const app = express()
 const apiKey = process.env.GOOGLE_API_KEY
 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'handbrew.vercel.app')
+  res.setHeader('Access-Control-Allow-Origin', 'https://handbrew.vercel.app')
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
   next()
